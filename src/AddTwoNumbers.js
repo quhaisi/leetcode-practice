@@ -60,7 +60,7 @@ var addTwoNumbers_unsolved2 = function(l1, l2) {
   return l3.next
 }
 
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers_solved = function(l1, l2) {
   var l1_next = l1,
     l2_next = l2,
     l3={val: -1,next: null},
@@ -94,6 +94,74 @@ var addTwoNumbers = function(l1, l2) {
       val: 1,
       next: null
     }
+  }
+  return l3.next
+}
+
+var addTwoNumbers_solved2 = function(l1, l2) {
+  var l1_next = l1,
+    l2_next = l2,
+    l3={val: -1,next: null},
+    current=l3
+    carry=0;
+  while(l1_next || l2_next) {
+    current.next = {
+      val: ((l1_next?l1_next.val:0)+(l2_next?l2_next.val:0)+carry)%10,
+      next: null
+    }
+    carry = ((l1_next?l1_next.val:0)+(l2_next?l2_next.val:0)+carry) >= 10 ? 1 : 0
+    l1_next = l1_next?l1_next.next:null
+    l2_next = l2_next?l2_next.next:null
+    current = current.next
+  }
+  if(carry === 1) {
+    current.val = current.val%10
+    current.next = {
+      val: 1,
+      next: null
+    }
+  }
+  return l3.next
+}
+
+var addTwoNumbers = function(l1, l2) { // addTwoNumbers_solved2 代码样式优化
+  var l1_next = l1,
+    l2_next = l2,
+    l3=new ListNode(-1),
+    current=l3
+    carry=0;
+  while(l1_next || l2_next) {
+    var x = l1_next ? l1_next.val : 0;
+    var y = l2_next ? l2_next.val : 0;
+    var sum = x + y + carry;
+    current.next = new ListNode(sum % 10);
+    carry = parseInt(sum / 10);
+    l1_next = l1_next ? l1_next.next : null
+    l2_next = l2_next ? l2_next.next : null
+    current = current.next
+  }
+  if(carry === 1) {
+    current.next = new ListNode(carry)
+  }
+  return l3.next
+}
+
+var addTwoNumbers = function(l1, l2) { // addTwoNumbers_solved2 优化去掉额外的变量生命
+  var l3=new ListNode(-1),
+    current=l3
+    carry=0;
+  while(l1 || l2) {
+    var x = l1 ? l1.val : 0;
+    var y = l2 ? l2.val : 0;
+    var sum = x + y + carry;
+    current.next = new ListNode(sum % 10);
+    carry = parseInt(sum / 10);
+    l1 = l1 ? l1.next : null
+    l2 = l2 ? l2.next : null
+    current = current.next
+  }
+  if(carry === 1) {
+    current.next = new ListNode(carry)
   }
   return l3.next
 }
