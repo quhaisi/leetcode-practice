@@ -1,0 +1,26 @@
+{
+  "name": "leetcode-practice",
+  "version": "1.0.0",
+  "description": "leetcode中的编程题实践",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "jest": "^24.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quhaisi/leetcode-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quhaisi/leetcode-practice/issues"
+  },
+  "homepage": "https://github.com/quhaisi/leetcode-practice#readme"
+}

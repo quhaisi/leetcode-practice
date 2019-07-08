@@ -42,25 +42,18 @@ var lengthOfLongestSubstring = function(s) {
   var p = 0, // 前指针
     q = 0, // 后指针
     len = s.length,
-    cLen = 0,
+    str = '',
     maxLen = 0;
-  while(q < len) {
-    cLen++;
-    q++;
-    if(s.charAt(q) === s.charAt(p)) {
+  while(p < len && q < len) {
+    if(s.slice(p,q).indexOf(s.charAt(q)) === -1) {
+      str+=s.charAt(q++);
+      maxLen = maxLen > q - p ? maxLen : q - p;
+    } else {
+      str.substr(0,1);
       p++;
-      // q++;
-      maxLen = maxLen > cLen ? maxLen : cLen;
-      cLen = 0;
     }
   }
-  return maxLen = maxLen > cLen ? maxLen : cLen;
+  return maxLen;
 }
 
-console.log(lengthOfLongestSubstring('abcabcbb'))
-console.log(lengthOfLongestSubstring('bbbbb'))
-console.log(lengthOfLongestSubstring('pwwkew'))
-console.log(lengthOfLongestSubstring('avsdf'))
-console.log(lengthOfLongestSubstring('q'))
-console.log(lengthOfLongestSubstring('aab'))
-console.log(lengthOfLongestSubstring('dvdf'))
+module.exports = lengthOfLongestSubstring;
