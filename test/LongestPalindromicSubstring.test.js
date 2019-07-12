@@ -7,4 +7,5 @@ test('lengthOfLongestSubstring', () => {
   expect(longestPalindrome('')).toBe('');
   expect(longestPalindrome('acacaca')).toBe('acacaca');
   expect(longestPalindrome('ccc')).toBe('ccc');
+  expect(longestPalindrome('ac')).toBe('a');
 })
