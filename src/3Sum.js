@@ -7,12 +7,9 @@ var threeSum_Time_Limit_Exceeded = function(nums) {
   var matchMap = new Map()
   var result = []
   for(var i = 0; i < nums.length; i++) {
-    console.log('i', i)
     for(var j = i+1; j < nums.length; j++) {
-      console.log(nums[j])
-      console.log((matchMap.get(nums[j])||[]).includes(nums[i]))
       if((matchMap.get(nums[j])||[]).includes(nums[i])) {
-        break;
+        continue;
       }
       for(var a = j+1; a < nums.length; a++) {
         if(nums[i]+nums[j]+nums[a] == 0) {
@@ -25,7 +22,7 @@ var threeSum_Time_Limit_Exceeded = function(nums) {
       }
     }
   }
-  console.log(result)
+  return result;
 };
 
 var threeSum = function(nums) {
