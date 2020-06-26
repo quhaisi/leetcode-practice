@@ -1,4 +1,4 @@
-var utils = require('../utils')
+var utils = require('../../utils')
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
