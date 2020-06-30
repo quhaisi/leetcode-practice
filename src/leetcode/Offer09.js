@@ -24,3 +24,4 @@ CQueue.prototype.deleteHead = function () {
  * obj.appendTail(value)
  * var param_2 = obj.deleteHead()
  */
+// TODO 双栈实现
